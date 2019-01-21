@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <h1>ARTICLES</h1>
+        <ul class="list-group">
+            {{#each article_data}}
+            <li class="list-group-item">
+                <h3>
+                    <a href="/article/{{id}}" id= "article-id">{{ title }}</a>
+                </h3>
+                <h4 id="substr">BIO DATA : {{ body }}</h4>
+                <h6>BY : {{ author }}</h6>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>

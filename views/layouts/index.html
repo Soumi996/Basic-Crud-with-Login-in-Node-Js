@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Knowledgebase</title>
+    <link href="/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <script src="/jquery/dist/jquery.js"></script>
+    <script src="/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- <script src="/js/main.js"></script> -->
+
+    <script>
+        $(document).ready(function () {
+            var url = $('#article-id').attr('href');
+            var value = $('#substr').text().substr(0, 250);
+            $('#substr').text(value).append('<b style="font-size : 15px;">... <a href='+url+'>CLICK HERE</b></a>');
+            $('#edit_input').click(function() {
+                $('form').attr('action', '/article/delete/{{article_data.id}}');
+            });
+            $('#delete').click(function () {
+                $('form').attr('action', '/article/delete/{{article_data.id}}');
+            });
+            $('#edit').click(function () {
+                $('form').attr('method', ' ');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark" style="margin-bottom:2%;">
+        <ul class="navbar-nav">
+            {{#if check}}
+                <li class="nav-item"> <a class="align-top navbar-brand" href="/">KnowledgeBase</a></li>
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/article/add">Add Article </a></li>
+                <li class="nav-item"><a class="nav-link" href="/users/logout">Logout </a></li>
+            {{else}}
+                <li class="nav-item"><a class="nav-link" href="/users/register">Register </a></li>
+                <li class="nav-item"><a class="nav-link" href="/users/login">Login </a></li>
+            {{/if}}
+        </ul>
+    </nav>
+    {{#if messages.title}}
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <div class="alert alert-success">
+                {{messages.title}}
+            </div>
+        </div>
+    </div>
+    {{/if}}
+    {{#if messages.success}}
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <div class="alert alert-success">
+                {{messages.success}}
+            </div>
+        </div>
+    </div>
+    {{/if}}
+    {{#if messages.registersuccess}}
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <div class="alert alert-success">
+                {{messages.registersuccess}}
+            </div>
+        </div>
+    </div>
+    {{/if}}
+    {{#if messages.login}}
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <div class="alert alert-success">
+                {{messages.login}}
+            </div>
+        </div>
+    </div>
+    {{/if}}
+    {{#if messages.fail}}
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <div class="alert alert-danger">
+                {{messages.fail}}
+            </div>
+        </div>
+    </div>
+    {{/if}}
+    {{#if messages.registerfail}}
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <div class="alert alert-danger">
+                {{messages.registerfail}}
+            </div>
+        </div>
+    </div>
+    {{/if}}
+
+    {{{ body }}}
+
+
+</body>
+
+<div class="container"><br>
+    <hr>
+    <footer>
+        <p>Copyright &copy; 2019</p>
+    </footer>
+</div>
+</html>

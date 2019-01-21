@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <h1>{{ article_data.title }}</h1>
+        <hr>
+        <h3>{{ article_data.body }}</h2>
+        <hr>
+        <br>
+        <h5>WRITTEN BY: {{ article_data.author }}</h5>
+        <br>
+        {{#if owner}}
+        <div class="row">
+            <a href="/article/edit/{{article_data.id}}"><button class="btn btn-primary">EDIT</button></a>
+            &nbsp;&nbsp;
+            <form method="POST" action="">
+                <input type="submit" name="submit" value="DELETE" id="delete" class="btn btn-danger">
+            </form>
+        </div>
+        {{/if}}
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <h1>{{ title }}</h1>
+        <hr>
+        {{#if errors.name}}
+        <div class="alert alert-danger">
+            {{errors.name.msg}}
+        </div>
+        {{/if}}
+        {{#if errors.username}}
+        <div class="alert alert-danger">
+            {{errors.username.msg}}
+        </div>
+        {{/if}}
+        {{#if errors.email}}
+        <div class="alert alert-danger">
+            {{errors.email.msg}}
+        </div>
+        {{/if}}
+
+
+        <form method="POST" action="/users/register">
+            <div id="form-group">
+                <label>
+                    <h1>Name:</h1>
+                </label>
+                <input class="form-control" name="name" type="text" placeholder="Name" required />
+            </div>
+            <div id="form-group">
+                <label>
+                    <h1>Username:</h1>
+                </label>
+                <input class="form-control" name="username" type="text" placeholder="Username" required />
+            </div>
+            <div id="form-group">
+                <label>
+                    <h1>Email:</h1>
+                </label>
+                <input class="form-control" name="email" type="text" placeholder="Email" required />
+            </div>
+            <div id="form-group">
+                <label>
+                    <h1>Password:</h1>
+                </label>
+                <input class="form-control" name="password" type="text" placeholder="Password" required />
+            </div>
+            <br />
+            <input class="btn btn-primary" type="submit" value="REGISTER" />
+        </form>
+    </div>
+</div>

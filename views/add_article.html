@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <h1>{{ title }}</h1>
+        <hr>
+        {{#if errors.title}}
+            <div class="alert alert-danger">
+                {{errors.title.msg}}
+            </div>
+        {{/if}}
+        {{#if errors.author}}
+            <div class="alert alert-danger">
+                {{errors.author.msg}}
+            </div>
+        {{/if}}
+
+        {{#if errors.body}}
+            <div class="alert alert-warning">
+                {{errors.body.msg}}
+            </div>
+        {{/if}}
+        
+        <form method="POST" action="/article/add">
+            <div id="form-group">
+                <label><h1>Title:</h1></label>
+                <input class="form-control" name="title" type="text" placeholder="TITLE" required/>
+            </div>
+            <div id="form-group">
+                <label><h1>Author:</h1></label>
+                <input class="form-control" name="author" type="text" placeholder="Author Email"  required/>
+            </div>
+            <div id="form-group">
+                <label><h1>Body:</h1></label>
+                <textarea class="form-control" name="body"  rows="10" cols="50" placeholder="Be Creative and Write Something Good..."></textarea>
+            </div><br />
+            <input class="btn btn-primary" type="submit" value="Publish" />
+        </form>
+    </div>
+</div>

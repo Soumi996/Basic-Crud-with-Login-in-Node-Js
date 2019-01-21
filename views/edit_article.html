@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <form method="POST" action="/article/edit/{{article_data.id}}">
+            <div id="form-group">
+                <label>Title</label>
+                <input type="text" class="form-control" name="title" required='required' value="{{article_data.title}}">
+            </div>
+            <div id="form-group">
+                <label>Author</label>
+                <input type="text" class="form-control" name="author" required='required' value="{{article_data.author}}">
+            </div>
+            <div id="form-group">
+                <label>Body</label>
+                <textarea name="body" rows="10" cols="50" class="form-control">{{article_data.body}}</textarea>
+            </div>
+            <br>
+            <input class="btn btn-primary" type="submit" value="Update">
+        </form>
+    </div>
+</div>
